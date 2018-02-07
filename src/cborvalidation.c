@@ -484,7 +484,7 @@ static CborError validate_container(CborValue *it, int containerType, int flags,
                 if (len1 == len2) {
                     size_t bytelen1 = (size_t)(previous_end - previous);
                     size_t bytelen2 = (size_t)(it->ptr - current);
-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+#pragma GCC diagnostic ignored "-Wuninitialized"
                     int r = memcmp(previous, current, bytelen1 <= bytelen2 ? bytelen1 : bytelen2);
 
                     if (r == 0 && bytelen1 != bytelen2)
